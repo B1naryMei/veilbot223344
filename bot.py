@@ -535,11 +535,11 @@ async def on_member_join(member: discord.Member):
         avatar.paste(img, (0, 0), mask)
 
         # Save the circular avatar
-        circular_avatar_path = "/workspaces/ddoschan/ddos/dos/result.png"
+        circular_avatar_path = "/workspaces/bot/result.png"
         avatar.save(circular_avatar_path)
 
         # Load and process the welcome banner
-        banner_path = "/workspaces/ddoschan/ddos/dos/welcome_banner.png"
+        banner_path = "/workspaces/bot/welcome_banner.png"
         img = Image.open(banner_path).convert("RGBA")
         pfp = Image.open(circular_avatar_path).convert("RGBA")
 
@@ -559,11 +559,11 @@ async def on_member_join(member: discord.Member):
         draw.text(text_position, welcome_text, fill="white", font=font)
 
         # Save the final welcome image as PNG
-        final_image_path = "/workspaces/ddoschan/ddos/dos/welcome.png"
+        final_image_path = "/workspaces/bot/welcome.png"
         img.save(final_image_path, format="PNG")
 
         # Send the text message and the image to the specified channel
-        channel = bot.get_channel(1262399368087212062)  # Replace with your channel ID
+        channel = bot.get_channel(1262399368087212062)  # Replace with your channel ID, need more changes in this logic
         if channel:
             # Send the welcome message with the user mention
             await channel.send(f"Welcome {member.mention}!")
